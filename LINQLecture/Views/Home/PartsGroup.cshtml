@@ -1,0 +1,40 @@
+﻿@model IEnumerable<IGrouping<string, decimal>>
+
+@{
+   ViewData["Title"] = ViewData["Message"];
+}
+
+<h1>@ViewData["Message"]</h1>
+
+@if (Model == null) return;
+
+<table class="table">
+   <thead>
+      <tr>
+         <th>
+            Part
+         </th>
+         <th>
+            Prices
+         </th>
+      </tr>
+   </thead>
+   <tbody>
+      @foreach (var item in Model)
+      {
+         <tr>
+            <td>
+               @item.Key
+            </td>
+            <td>
+               <ul>
+                  @foreach (var price in item)
+                  {
+                     <li>@price.ToString("C")</li>
+                  }
+               </ul>
+            </td>
+         </tr>
+      }
+   </tbody>
+</table>

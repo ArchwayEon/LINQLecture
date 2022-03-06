@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SupplierPartsVM>
+
+@{
+   ViewData["Title"] = ViewData["Message"];
+}
+
+<h1>@ViewData["Message"]</h1>
+
+@if (Model == null) return;
+
+<table class="table">
+   <thead>
+      <tr>
+         <th>
+            @Html.DisplayNameFor(model => model.SupplierName)
+         </th>
+         <th>
+            Parts
+         </th>
+      </tr>
+   </thead>
+   <tbody>
+      @foreach (var item in Model)
+      {
+         <tr>
+            <td>
+               @Html.DisplayFor(modelItem => item.SupplierName)
+            </td>
+            <td>
+               <ul>
+                  @foreach (var part in item.SupplierParts)
+                  {
+                     <li>@part.Part!.Name</li>
+                  }
+               </ul>
+            </td>
+         </tr>
+      }
+   </tbody>
+</table>
