@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SupplierPart>
+
+@{
+   ViewData["Title"] = ViewData["Message"];
+}
+
+<h1>@ViewData["Message"]</h1>
+
+@if (Model == null) return;
+
+<table class="table">
+   <thead>
+      <tr>
+         <th>
+            Part Name
+         </th>
+         <th>
+            Supplier Name
+         </th>
+         <th>
+            Price
+         </th>
+      </tr>
+   </thead>
+   <tbody>
+      @foreach (var item in Model)
+      {
+         <tr>
+            <td>
+               @item.Part!.Name
+            </td>
+            <td>
+               @item.Supplier!.Name
+            </td>
+            <td>
+               @item.Price.ToString("C")
+            </td>
+         </tr>
+      }
+   </tbody>
+</table>

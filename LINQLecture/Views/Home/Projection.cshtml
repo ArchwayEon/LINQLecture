@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PartNewPriceVM>
+
+@{
+    ViewData["Title"] = ViewData["Message"];
+}
+
+<h1>@ViewData["Message"]</h1>
+
+@if (Model == null) return;
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OldPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @item.OldPrice.ToString("C")
+                </td>
+                <td>
+                    @item.NewPrice.ToString("C")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
