@@ -12,7 +12,7 @@ builder.Services.AddScoped<ISupplierPartsRepository, DbSupplierPartsRepository>(
 builder.Services.AddScoped<Initializer>();
 
 var app = builder.Build();
-SeedData(app);
+await SeedDataAsync(app);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -35,20 +35,21 @@ app.MapControllerRoute(
 
 app.Run();
 
-static void SeedData(WebApplication app)
+static async Task SeedDataAsync(WebApplication app)
 {
 	using var scope = app.Services.CreateScope();
 	var services = scope.ServiceProvider;
 	try
 	{
 		var initializer = services.GetRequiredService<Initializer>();
-		initializer.SeedDatabase();
+		await initializer.SeedDatabaseAsync();
 	}
 	catch (Exception ex)
 	{
 		var logger = services.GetRequiredService<ILogger<Program>>();
 		logger.LogError(
-			$"An error occurred while seeding the database. {ex.Message}");
+			"An error occurred while seeding the database. {Message}", 
+			ex.Message);
 	}
 }
 

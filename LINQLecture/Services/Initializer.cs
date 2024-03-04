@@ -11,7 +11,7 @@ public class Initializer
 		_db = db;
 	}
 
-	public void SeedDatabase()
+	public async Task SeedDatabaseAsync()
 	{
 		_db.Database.EnsureCreated();
 
@@ -20,22 +20,22 @@ public class Initializer
 
 		var suppliers = new Supplier[]
 		{
-		new Supplier { Name = "Acme" },
-		new Supplier { Name = "Zappo" },
-		new Supplier { Name = "Creepy" }
+			new() { Name = "Acme" },
+			new() { Name = "Zappo" },
+			new() { Name = "Creepy" }
 		};
 		_db.Suppliers.AddRange(suppliers);
-		_db.SaveChanges();
+        await _db.SaveChangesAsync();
 
-		var parts = new Part[]
+        var parts = new Part[]
 		{
-		new Part { Name = "Catapult" },
-		new Part { Name = "Zipper" },
-		new Part { Name = "Nail" },
-		new Part { Name = "Screw" }
+			new() { Name = "Catapult" },
+			new() { Name = "Zipper" },
+			new() { Name = "Nail" },
+			new() { Name = "Screw" }
 		};
 		_db.Parts.AddRange(parts);
-		_db.SaveChanges();
+		await _db.SaveChangesAsync();
 
 		var supplier = _db.Suppliers.First(s => s.Name == "Acme");
 		var part = _db.Parts.First(p => p.Name == "Catapult");
@@ -59,7 +59,7 @@ public class Initializer
 		supplierPart = new SupplierPart { SupplierId = supplier.Id, PartId = part.Id, Price = 8.0m };
 		_db.SupplierParts.Add(supplierPart);
 
-		_db.SaveChanges();
+		await _db.SaveChangesAsync();
 	}
 }
 
