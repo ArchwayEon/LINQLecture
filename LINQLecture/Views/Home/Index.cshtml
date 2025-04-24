@@ -3,6 +3,34 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>
+        This application provides a comprehensive overview of Language-Integrated Query (LINQ) in C#,
+        demonstrating its capabilities for standardized data querying and manipulation across various
+        data sources. The application introduces extension methods, which allow developers to add
+        functionality to existing types without modifying the original code, and lambda expressions,
+        which are anonymous functions used for creating concise, passable code blocks. The majority
+        of the code focuses on LINQ's practical implementation through numerous operators and syntax
+        options, comparing extension method syntax with query syntax across various scenarios
+        including filtering, sorting, joining, grouping, and aggregating data. Throughout the
+        application, code examples demonstrate a three-tier data model of Suppliers, Parts, and
+        SupplierParts, showing how to perform common database operations using LINQ's declarative
+        approach within the application, with corresponding views to display the results.
+    </p>
+    <a asp-action="ExtensionMethodExamples">Extension Methods</a><br />
+    <a asp-action="LambdaExamples">Lambda Expressions</a><br />
+    <a asp-action="FilteringEM">Filtering Extension Method Syntax</a><br />
+    <a asp-action="FilteringQ">Filtering Query Syntax</a><br />
+    <a asp-action="SortingEM">Sorting Extension Method Syntax</a><br />
+    <a asp-action="SortingQ">Sorting Query Syntax</a><br />
+    <a asp-action="Sets">Sets</a><br />
+    <a asp-action="Quantifiers">Quantifiers</a><br />
+    <a asp-action="ProjectionEM">Projection Extension Method Syntax</a><br />
+    <a asp-action="ProjectionQ">Projection Query Syntax</a><br />
+    <a asp-action="SupplierPartsEM">Join Extension Method Syntax</a><br />
+    <a asp-action="SupplierPartsQ">Join Query Syntax</a><br />
+    <a asp-action="SupplierPartsGroupJoinEM">Group Join Extension Method Syntax</a><br />
+    <a asp-action="SupplierPartsGroupJoinQ">Group Join Query Syntax</a><br />
+    <a asp-action="PartsGroupEM">Group By Extension Method Syntax</a><br />
+    <a asp-action="PartsGroupQ">Group By Query Syntax</a><br />
+    <a asp-action="Misc">Miscellaneous</a><br />
 </div>
